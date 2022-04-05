@@ -12,6 +12,7 @@ public class Main {
         new HomeworkAnnotations().sayHello();
     }
 
+    @SuppressWarnings("deprecation")
     private void callSayGoodBye() {
         new HomeworkAnnotations().sayGoodBye();
     }

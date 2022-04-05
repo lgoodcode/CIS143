@@ -6,10 +6,15 @@ public class Main {
 
     public static void main (String[] a) throws BadStringOperationException, InterruptedException {
         Main main = new Main();
-        main.testNeedsToBeModified();;
+        main.testNeedsToBeModified();
+        throw new RuntimeException();
     }
 
     public void testNeedsToBeModified() throws BadStringOperationException, InterruptedException {
-        new ThrowsException().throwAnExceptionForMe();
+        try {
+            new ThrowsException().throwAnExceptionForMe();
+        } catch (MyException ex) {
+            System.out.println("Exception caught");
+        }
     }
 }

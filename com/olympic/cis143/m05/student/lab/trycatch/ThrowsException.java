@@ -4,8 +4,12 @@ import javax.management.BadStringOperationException;
 
 public class ThrowsException {
 
-    public void throwAnExceptionForMe() throws BadStringOperationException, InterruptedException {
-        this.thowMultipleExceptionsForMe();
+    public void throwAnExceptionForMe() throws BadStringOperationException, InterruptedException, MyException {
+        try {
+            this.thowMultipleExceptionsForMe();
+        } catch (BadStringOperationException | InterruptedException ex) {
+            throw new MyException("caught", ex);
+        }
     }
 
     private void thowMultipleExceptionsForMe() throws BadStringOperationException, InterruptedException {
